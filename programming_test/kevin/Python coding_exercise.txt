@@ -1,0 +1,81 @@
+1.Max-
+
+def maximum(a,b):
+    Maximum = max(a,b)
+    print(Maximum)
+maximum(eval(input()),eval(input()))    
+
+
+2.Fizz_buzz-
+
+def fizz_buzz(input):
+    if (input % 3 == 0) and (input % 5 == 0):
+        return 'FizzBuzz'
+    if input % 3 == 0:
+        return 'Fizz'
+    if input % 5 == 0:
+        return 'Buzz'
+    return input
+fizz_buzz(eval(input()))
+
+
+3.Demerit points-
+
+
+def speed(a):
+    demerit_points = 0
+    if a <= 70:
+        print("ok")
+    if a > 70 and a % 5 ==0:
+        demerit_points+=((a-75)/5) +1
+        print("Points:",demerit_points)
+    if demerit_points >=12:
+        print("License suspended")
+speed(eval(input()))       
+
+
+4. showNumbers -
+
+
+def showNumbers(limit):
+    for i in range(0,limit+1):
+        if i %2==0:
+            print("%s EVEN"%i)
+        else:
+            print("%s ODD"%i)
+showNumbers(eval(input()))   
+
+
+
+5. Sum of 3 and 5-
+
+def num(limit):
+    sum = 0
+    for i in range(0,limit+1):
+        if i%3==0 or i%5==0:
+            sum +=i
+    print(sum)
+num(eval(input()))       
+
+
+6. Show_stars-
+
+def show_stars(rows):
+    for i in range(0,rows+1):
+        for j in range(0,i):
+            print("*",end = "")
+        print("\n")
+show_stars(eval(input()))   
+
+
+7. Prime_number -
+
+def prime_number(limit):
+    for i in range(0,limit+1):
+        if i>1:
+            for j in range(2,i):
+                if(i % j==0):
+                    break
+            else:
+                    print(i)
+prime_number(eval(input())) 

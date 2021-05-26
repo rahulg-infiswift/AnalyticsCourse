@@ -1,0 +1,53 @@
+1) x=2
+y=5
+
+MAXIMUM = max(x,y)
+print(MAXIMUM)
+
+2) def fizz_buzz(x):
+    
+    if x%3==0:
+        return "Fizz"
+    
+    elif x%5==0:
+        return "Buzz"
+    
+    elif (x%3==0) & (x%5==0):
+        return("FizzBuzz")
+    
+    else:
+        return x
+fizz_buzz(30)
+
+3) def speed_limit(speed):
+    
+    if speed <70:
+        print("OK")
+    
+    else:
+        speed_warning= (speed-70)/5
+        
+        if speed_warning <=12:
+            print(f"Points : {speed_warning}")
+        
+        else:
+            print("License Suspended")
+
+speed_limit(99)
+
+4) def showNumber(limit):
+    for i in range(0,limit+1):
+        if i%2==0:
+            print(f"{i} EVEN")
+        
+        else:
+            print(f"{i} ODD")
+
+            
+showNumber(3)
+
+6) def show_stars(rows):
+    for i in range(rows+1):
+        print("*" *i)
+
+show_stars(5)

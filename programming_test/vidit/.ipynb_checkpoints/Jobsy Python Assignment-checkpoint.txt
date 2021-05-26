@@ -1,0 +1,98 @@
+# Python Coding Exercise
+
+Write a function that returns the maximum of two numbers.
+
+a = input("Enter the value of A: ")
+b = input("Enter the value of B: ")
+max(a,b)
+
+
+
+Write a function called fizz_buzz that takes a number.
+    If the number is divisible by 3, it should return “Fizz”.
+    If it is divisible by 5, it should return “Buzz”.
+    If it is divisible by both 3 and 5, it should return “FizzBuzz”.
+    Otherwise, it should return the same number.
+
+x = int(input())
+if x%3 == 0 and x%5 == 0:
+    print("FizzBuzz")
+elif x%5 == 0:
+    print("Buzz")
+elif x%3 == 0 :
+    print("Fizz")
+else:
+    print(x)
+
+
+
+Write a function for checking the speed of drivers. This function should have one parameter: speed.
+If speed is less than 70, it should print “Ok”.
+Otherwise, for every 5km above the speed limit (70), it should give the driver one demerit 
+point and print the total number of demerit points. For example, if the speed is 80, it should print: “Points: 2”.
+If the driver gets more than 12 points, the function should print: “License suspended”
+
+t = int(input("Please enter your speed: "))
+x = (t-70)//5
+if t < 70:
+    print("Ok")
+elif t > 130:
+    print("License Suspended")
+else:
+    print(x, "points")
+
+
+
+Write a function called showNumbers that takes a parameter called limit. 
+It should print all the numbers between 0 and limit with a label to identify the even and odd numbers. 
+For example, if the limit is 3, it should print:
+0 EVEN
+1 ODD
+2 EVEN
+3 ODD
+
+u = int(input())
+for u in range (0,u+1):
+    if u%2==0:
+        print(u, "Even")
+    else:
+        print(u, "Odd")
+
+
+
+Write a function that returns the sum of multiples of 3 and 5 between 0 and limit (parameter). 
+For example, if the limit is 20, it should return the sum of 3, 5, 6, 9, 10, 12, 15, 18, 20.
+
+x = int(input("Enter the value here: ", ))
+for x in range(3, x + 1):
+    if (x % 3 == 0) or (x % 5 == 0):
+        print(x)
+
+
+
+Write a function called show_stars(rows). If rows is 5, it should print the following:
+*
+**
+***
+****
+*****
+
+r = int(input("Enter the number of rows: ", ))
+count = 1
+while count < (r+1):
+    print("*"*count)
+    count = count + 1
+
+
+
+Write a function that prints all the prime numbers between 0 and limit where limit is a parameter.
+
+num = int(input("Enter a number: "))  
+
+for num in range(1, num + 1):
+   if num > 1:
+       for i in range(2, num):
+           if (num % i) == 0:
+               break
+       else:
+           print(num)

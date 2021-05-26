@@ -1,0 +1,87 @@
+1) A function to retrun the maximum of two numbers
+
+a = input("Enter the first number\n")
+b = input("Enter the second number\n")
+if a>b:
+    print(a,"is larger")
+elif a<b:
+    print(b,"is larger")
+else:
+    print("Both the numbers are equal\n", a, "=",b)
+
+2) fizz_buzz function
+
+def fizz_buzz():
+    a = float(input("Enter the number\n"))
+    if (a%3 == 0) & (a%5 != 0):
+        print("\nFizz")
+    elif (a%5 == 0) & (a%3 != 0):
+        print("\nBuzz")
+    elif (a%3 == 0) & (a%5 == 0):
+        print("\nFizzBuzz")
+    else:
+        print('\n',a)
+
+3) Function for checking the speed of the driver
+
+def checkspeed(speed):
+    if speed >= 0:
+        if speed < 70:
+            print("OK")
+        elif speed >= 70:
+            d = int((speed - 70)/5)
+            if d > 12:
+                print("License Suspended")
+            else:
+                print("Points:",d)
+    else:
+        print("Enter a valid speed")        
+
+4) ShowNumber function
+
+def shownumbers(limit):
+    if limit > 0:
+        lst = range(0,limit+1)
+        for i in lst:
+            if i%2 == 0:
+                print(i,"EVEN")
+            elif i%2 != 0:
+                print(i,"ODD")
+    else:
+        print("Enter any positive integer")
+
+5) Function to find sum of multiples of 3 and 5
+
+def multisum(limit):
+    sum = 0
+    if limit >= 0:
+        lst = range(0, limit+1)
+        for i in lst:
+            if (i%3 == 0) or (i%5 ==0):
+                sum = sum + i
+        print("Sum =",sum)
+    else:
+        print("Enter a positive integer")
+
+6) show_stars function
+
+def show_stars(rows):
+    if rows > 0:
+        lst = range(0,rows+1)
+        for i in lst:
+            print(i*"*")
+    else:
+        print("Enter a positive interger")
+
+7) Function to print prime numbers
+
+def prime(limit):
+    lst = range(1,limit+1)
+    for i in lst:
+        rem = 0
+        lst1 = range(1,i+1)
+        for l in lst1:
+            if i%l == 0:
+                rem = rem + 1
+        if rem < 3:
+            print(i)

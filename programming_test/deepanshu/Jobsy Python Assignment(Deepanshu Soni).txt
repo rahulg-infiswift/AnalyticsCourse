@@ -1,0 +1,88 @@
+#1)Write a Function for max of two number
+
+def x(a,b):
+    if a > b:
+        return a
+    else:
+        return b
+    
+max_value = x(56,25)
+
+print(max_value)
+-----------------------------------------------------------------------------------------
+#2)Write a function called fizz_buzz that takes a number.
+
+def fizz_buzz(x):
+    if(x%3==0 and x%5!=0):
+        return print("Fizz")
+        
+    if(x%5==0 and x%3!=0):
+        return print("Buzz")
+        
+    if(x%3==0 and x%5==0):
+        return print("FizzBuzz")
+    
+    else:
+        return x
+        
+fizz_buzz(7)
+fizz_buzz(15)
+fizz_buzz(9)
+fizz_buzz(25)
+-----------------------------------------------------------------------------------------
+#3)Write a function for checking the speed of drivers. This function should have one parameter: speed.
+
+def check(speed):
+    if(speed <= 70):
+        print("OK")
+    else:
+        new_speed = (speed-70)//5
+        
+    if(new_speed <= 12):
+        print(f"points: {new_speed}")
+    else:
+        print("License Suspended")
+check(80)
+-----------------------------------------------------------------------------------------
+#4)Write a function called showNumbers that takes a parameter called limit.
+
+def showNumbers(limit):
+    for i in range(0,limit+1):
+        if(i%2==0):
+            print(i,"Even")
+        else:
+            print(i,"Odd")
+
+showNumbers(9)
+-----------------------------------------------------------------------------------------
+#5)Write a function that returns the sum of multiples of 3 and 5 between 0 and limit (parameter).
+
+def multi_sum(limit):
+    total_sum = 0
+    for i in range(limit+1):
+        if(i%3==0 or i%5==0):
+            total_sum = total_sum+i
+    print(total_sum)
+multi_sum(10)
+-----------------------------------------------------------------------------------------
+#6)Write a function called show_stars(rows). If rows is 5, it should print the following:
+
+def show_stars(rows):
+    for i in range(0,rows):
+        for j in range(0,i+1):
+            print("*",end="")
+        print()
+
+show_stars(6)
+-----------------------------------------------------------------------------------------
+#7)Write a function that prints all the prime numbers between 0 and limit where limit is a parameter
+
+def prime(limit):
+    for i in range(limit+1):
+        if(i>1):
+            for j in range(2,i):
+                if(i%j==0):
+                    break
+            else:
+                print(i)
+prime(20)
