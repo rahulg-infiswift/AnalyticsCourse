@@ -1,0 +1,46 @@
+> Table 1 (A flat table which contains the following information)
+Customer_name,customer_email,category_name,order_value,order_date,order_id
+
+Create Table Table_1 as
+(
+select 
+customers.customer_name,
+customers.customer_email,
+categories.category_name,
+orders.order_value,
+orders.order_date,
+orders.order_id
+from orders
+outer join customers on customers.customer_id = orders.customer_id
+outer join categories on categories.category_id = orders.category_id
+);
+
+
+
+> Table 2 (Total discount value availed by customer - Aggregated table)
+
+Create Table Table_2 as
+(
+select 
+customers.customer_name,
+customers.email as customer_email,
+sum(orders.discount) as total_discount
+from customers
+left join orders on customers.customer_id = orders.customer_id
+group by 1
+);
+
+
+> Table 3 (Month and category wise order_value - Aggregated table)
+
+Create Table Table_3 as 
+(
+select
+month(orders.order_date) as month,
+categories.category_name
+sum(order_value) as total_order_value
+from orders
+outer join categories on categories.category_id = orders.category_id;
+group by 1, 2
+);
+

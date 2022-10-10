@@ -1,0 +1,48 @@
+Q1. WRITE a QUERY TO find the LIST customer_name, customer_id, different cards owned AND balance LEFT ON EACH card FOR ALL Premium customers?
+
+SELECT customer.customer_name,
+customer_cards.customer_id, 
+customer_cards.card_id AS different_cards_owned, 
+customer_cards.balance_left
+FROM customer 
+LEFT JOIN customer_cards 
+ON customer.id= customer_cards.customer_id 
+WHERE customer.customer_type='Premium';
+
+Q2. List the total renews of customers by different card types. Output should contain customer_id, card_type, card_name and total renewd_amount?
+
+SELECT card_renewals.customer_id,
+card_master.card_type,
+card_master.card_name,
+sum(card_renewals.renew_amount) AS total_renewd_amount
+FROM card_renewals 
+LEFT JOIN card_master 
+ON card_renewals.card_id = card_master.id;
+
+Q3. LIST total calls made BETWEEN 4th April 2018 AND 5th May 2018 FOR ALL premium customers whose CALL duration IS greater THAN 10 minutes BY day.Output should contain total calls , DATE?
+
+
+SELECT count(call_records.id) AS total_calls,
+DATE(call_records.call_starttime) AS DATE,
+FROM call_records
+LEFT JOIN customer ON call_records.customer_id = customer.id
+WHERE DATE(call_records.call_starttime)>= '2018-04-04'
+AND DATE(call_records.call_starttime)<= '2018-05-05'
+AND customer.customer_type = 'Premium'
+AND datediff('minute', call_records.call_starttime, call_records.call_endtime) >10
+GROUP BY DATE;
+
+
+Q4. LIST total calls, card used, total CALL duration, customer NAME, current card balance FOR ALL customers FOR the MONTH of April 2018 BY customer, card TYPE ?
+
+SELECT count(call_records.id) AS total_calls,
+count(call_records.card_used) AS total_card_used,
+sum(datediff('minute', call_records.call_starttime, call_records.call_endtime)) AS total_card_duration,
+customer.customer_name,
+card_master.card_type,
+sum(balenace_left) AS current_card_balance
+FROM call_records
+LEFT JOIN customer ON customer.id = call_records.customer_id 
+LEFT JOIN customer_cards ON customer_cards.customer_id = customer.id
+LEFT JOIN card_master ON  card_master.card_id = customer_cards.card_id
+group by customer_name, card_type;

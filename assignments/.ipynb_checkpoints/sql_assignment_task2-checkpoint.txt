@@ -1,0 +1,47 @@
+Q1. What are different types of joins?
+
+There are 5 types of joins, namely - 
+LEFT JOIN
+RIGHT JOIN
+INNER JOIN
+FULL OUTER JOIN/ OUTER JOIN
+CROSS JOIN
+
+
+Q2. Display all faq_id, questions for a given partner_id. What kind of join is it?
+
+select 
+Faq_questions.Id as faq_id,
+Faq_questions.Question as questions
+from Faq_questions
+left join Category_faq_mapping.Faq_id = Faq_questions.Id
+left join partner_questions on partner_questions.Faq_mapping_id = Category_faq_mapping.Id
+where partner_questions.Partner_id = 'given partner_id'
+
+This is an example of Left Join
+
+Q3. Display questions,partner_id for a given category_id and all partners?
+
+
+select 
+Faq_questions.Question as questions
+partner_questions.Partner_id as partner_id
+from Faq_questions
+left join Category_faq_mapping.Faq_id = Faq_questions.Id
+full other join partner_questions on partner_questions.Faq_mapping_id = Category_faq_mapping.Id
+where Category_faq_mapping.Category_id = 'given category_id'
+
+
+Q4. Display question_id, question, answer_id, answer for all partners?
+
+select 
+Faq_questions.Id as question_id,
+Faq_questions.Question as question,
+Category_answers.Id as answer_id,
+Category_answers.Answer as answer
+from 
+from partner_questions
+left join Category_faq_mapping on Category_faq_mapping.Id = partner_questions.Faq_mapping_id 
+left join Faq_questions on Faq_questions.Id = Category_faq_mapping.Faq_id 
+left join Category_answers on Category_answers.faq_mapping_id = Category_faq_mapping.id
+

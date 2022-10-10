@@ -1,0 +1,35 @@
+Q1. Get total orders and total order value per day for the month of March 2018 ?
+
+select 
+date(order_date) as date,
+count(order_id) as total_orders,
+sum(order_value) as total_order_value
+from orders
+where to_char(order_date , 'MM') = 03
+and to_char(order_date , 'YYYY') = 2018
+group by date
+
+
+Q2. Get Total orders,order value per day for the month of March 2018 for each order type ?
+
+
+select 
+order_type,
+date(order_date) as date,
+count(order_id) as total_orders,
+sum(order_value) as total_order_value
+from orders
+where to_char(order_date , 'MM') = 03
+and to_char(order_date , 'YYYY') = 2018
+group by order_type, date
+
+Q3. Get average order_value for the month of March 2018 for all successful orders for each category?
+
+select 
+order_type as category,
+avg(order_value) as average_order_value
+from orders
+where to_char(order_date , 'MM') = 03
+and to_char(order_date , 'YYYY') = 2018
+and Order_status = 'Success'
+group by 1
