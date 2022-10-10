@@ -1,3 +1,3 @@
 # AnalyticsCourse
  
-Codes and Reading Material for Jobsy Analytics Course
+Codes and Reading Material for Learning Analytics and Data Science
